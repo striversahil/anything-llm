@@ -67,7 +67,7 @@ const ExperimentalFeatures = lazy(
 const LiveDocumentSyncManage = lazy(
   () => import("@/pages/Admin/ExperimentalFeatures/Features/LiveSync/manage")
 );
-
+const AgentBuilder = lazy(() => import("@/pages/Admin/AgentBuilder"));
 const CommunityHubTrending = lazy(
   () => import("@/pages/GeneralSettings/CommunityHub/Trending")
 );
@@ -76,6 +76,9 @@ const CommunityHubAuthentication = lazy(
 );
 const CommunityHubImportItem = lazy(
   () => import("@/pages/GeneralSettings/CommunityHub/ImportItem")
+);
+const SystemPromptVariables = lazy(
+  () => import("@/pages/Admin/SystemPromptVariables")
 );
 
 export default function App() {
@@ -144,6 +147,24 @@ export default function App() {
                     element={<AdminRoute Component={AdminAgents} />}
                   />
                   <Route
+                    path="/settings/agents/builder"
+                    element={
+                      <AdminRoute
+                        Component={AgentBuilder}
+                        hideUserMenu={true}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/settings/agents/builder/:flowId"
+                    element={
+                      <AdminRoute
+                        Component={AgentBuilder}
+                        hideUserMenu={true}
+                      />
+                    }
+                  />
+                  <Route
                     path="/settings/event-logs"
                     element={<AdminRoute Component={AdminLogs} />}
                   />
@@ -175,6 +196,10 @@ export default function App() {
                   <Route
                     path="/settings/api-keys"
                     element={<AdminRoute Component={GeneralApiKeys} />}
+                  />
+                  <Route
+                    path="/settings/system-prompt-variables"
+                    element={<AdminRoute Component={SystemPromptVariables} />}
                   />
                   <Route
                     path="/settings/browser-extension"

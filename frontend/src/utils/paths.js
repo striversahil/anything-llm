@@ -120,6 +120,7 @@ export default {
     apiKeys: () => {
       return "/settings/api-keys";
     },
+    systemPromptVariables: () => "/settings/system-prompt-variables",
     logs: () => {
       return "/settings/event-logs";
     },
@@ -137,6 +138,14 @@ export default {
     },
     experimental: () => {
       return `/settings/beta-features`;
+    },
+  },
+  agents: {
+    builder: () => {
+      return `/settings/agents/builder`;
+    },
+    editAgent: (uuid) => {
+      return `/settings/agents/builder/${uuid}`;
     },
   },
   communityHub: {
